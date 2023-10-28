@@ -244,6 +244,12 @@ app.post("/mcdlogin",function(req,res){
 
 })
 
+app.get("/mcdmenu", function(req,res){
+
+    res.render('mcdmenu');
+
+})
+
 //*************************************//
 
 

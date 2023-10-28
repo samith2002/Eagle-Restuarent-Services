@@ -1,0 +1,242 @@
+<%- include("partials/header"); -%>
+
+    <section class="sbmenu">
+        <center>
+            <img src="images/kfc.png" alt="" class="starbucksloginimg" style="margin-top: 25px;">
+            <div style="width: 110; margin-top: 5px;">
+                <h1 class="menuh1" style="background-color: #A3080C; color: white;">Menu</h1>
+            </div>
+        </center>
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <body>
+            <div class="hotdrinks" style="background-color: black">
+                <h1 class="menuh1" style="color: white;">Combos</h1>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div class="card" style="width: 18rem; " data-price="6.99">
+                                <img src="https://digitaleat.kfc.com/menus/image/bare/kfc-8pcBucketMeal?q=75&w=1280", style="background-color:#A3080C ;"
+                                    class="card-img-top" alt="..." name="img">
+                                <div class="card-body">
+                                    <h5 class="card-title">8 PC. CHICKEN MEAL</h5>
+                                    <p class="card-text">Have dinner your way with our 8 Piece Fried Chicken Bucket Meal! This combo meal comes with our world famous chicken in the KFC® recipe of your choice – along with 2 large sides and 4 biscuits.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $6.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice" name="total">$6.99</span></p>
+
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="6.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="6.19">
+                                <img src="https://digitaleat.kfc.com/menus/image/bare/kfc-8pcTendersMeal-test?q=75&w=1280", style= "background-color:#A3080C "
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">8 PC. TENDERS MEAL</h5>
+                                    <p class="card-text">Enjoy 8 of our Extra Crispy™ fried chicken tenders, 2 large sides of your choice, 4 biscuits and 4 dipping sauces. Enjoy your meal at every bite and have a finger licking day!</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $6.19</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">6.19</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="6.19">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="8.79">
+                                <img src="https://digitaleat.kfc.com/menus/image/bare/kfc-8pcSpWingsCombo?q=75&w=1280", style=" background-color:#A3080C ";
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">8 PC. HOT & SPICY WINGS COMBO</h5>
+                                    <p class="card-text"> Experience chicken wings like never before with our new Hot & Spicy Wings Combo. These hot chicken wings are marinated in a bold blend.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $8.79</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$8.79</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="8.79">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="1.49">
+                                <img src="https://digitaleat.kfc.com/menus/image/bare/kfc-spcknsndcombo?q=75&w=1280", style="background-color:#A3080C ";
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">SPICY CHICKEN SANDWICH COMBO</h5>
+                                    <p class="card-text">Add a bit of spice to your lunch or dinner with our Spicy Chicken Sandwich Combo. Available for delivery or pick up when you order online, this combo meal includes our all-white meat, signature Extra Crispy™</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $1.49</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$1.49</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="1.49">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="6.90">
+                                <img src="https://digitaleat.kfc.com/menus/image/bare/kfc-KidsMealNuggetpromoPDP?q=75&w=1280", style="background-color:#A3080C ";
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">5 PC. NUGGET KIDS' MEAL</h5>
+                                    <p class="card-text">Now serving even the tiniest of the family. 5 100% white-meat chicken nuggets hand-breaded in our Original Recipe®. Includes choice of side and choice of drink.CAPRI-SUN® and the Pouch Shape™ are licensed trademarks of the Capri Sun Group</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $6.90</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$6.90</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="6.90">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="6.90">
+                                <img src="https://digitaleat.kfc.com/menus/image/bare/kfc-8pcNuggetsComboV2?q=75&w=1280", style="background-color:#A3080C ";
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">8 PC. NUGGETS COMBO</h5>
+                                    <p class="card-text">Order for delivery or pick up at a KFC® near you and grab the best chicken nuggets with our 8 Piece Chicken Nuggets Combo! These 100% white meat chicken nuggets are hand breaded in our Original Recipe® for the perfect bite of our mouthwatering fried chicken.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $6.90</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$6.90</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="6.90">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                const cards = document.querySelectorAll('.card');
+        
+                cards.forEach(card => {
+                    const quantityInput = card.querySelector('.sbquantity');
+                    const decreaseButton = card.querySelector('.decreasebtn');
+                    const increaseButton = card.querySelector('.increasebtn');
+                    const totalPriceSpan = card.querySelector('.totalPrice');
+                    const hiddenInput = card.querySelector('.totalPriceInput');
+                    const price = parseFloat(card.getAttribute('data-price'));
+        
+                    function updateTotalPrice() {
+                        const quantity = parseInt(quantityInput.value);
+                        const totalPrice = price * quantity;
+                        totalPriceSpan.textContent = `$${totalPrice.toFixed(2)}`;
+                        hiddenInput.value = totalPrice.toFixed(2);
+                    }
+        
+                    decreaseButton.addEventListener('click', function () {
+                        if (quantityInput.value > 1) {
+                            quantityInput.value = parseInt(quantityInput.value) - 1;
+                            updateTotalPrice();
+                        }
+                    });
+        
+                    increaseButton.addEventListener('click', function () {
+                        quantityInput.value = parseInt(quantityInput.value) + 1;
+                        updateTotalPrice();
+                    });
+        
+                    updateTotalPrice();
+                });
+            </script>   
+        </body>
+
+        </html>
+
+    </section>
