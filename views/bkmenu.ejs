@@ -1,0 +1,242 @@
+<%- include("partials/header"); -%>
+
+    <section class="sbmenu">
+        <center>
+            <img src="images/bk.png" alt="" class="starbucksloginimg" style="margin-top: 25px;">
+            <div style="width: 110; margin-top: 5px;">
+                <h1 class="menuh1" style="background-color: #106E33; color: white;">Menu</h1>
+            </div>
+        </center>
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <body>
+            <div class="hotdrinks">
+                <h1 class="menuh1">Whoppers</h1>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div class="card" style="width: 18rem; " data-price="6.99">
+                                <img src="https://cdn.sanity.io/images/czqk28jt/prod_bk_us/5b1eb12509d798084b2931128033337c00ee08f7-1333x1333.png?w=1125&q=80&fit=max&auto=format", style="background-color: #502314;"
+                                    class="card-img-top" alt="..." name="img">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ghost Pepper Whopper (850 Cal)</h5>
+                                    <p class="card-text">Burger King's Ghost Pepper Whopper features 1/4 lb flame-grilled beef patty, crispy bacon, crispy jalapenos, melty Ghost Pepper Cheese and queso sauce all on a toasted orange and black bun.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $6.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice" name="total">$6.99</span></p>
+
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="6.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="6.19">
+                                <img src="https://cdn.sanity.io/images/czqk28jt/prod_bk_us/84743a96a55cb36ef603c512d5b97c9141c40a33-1333x1333.png?w=1125&q=80&fit=max&auto=format", style="background-color: #502314;"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Whopper (670 Cal)</h5>
+                                    <p class="card-text">America's Favorite Burger*, The Whopper Sandwich is a ¼ lb** of flame-grilled beef with juicy tomatoes, crisp lettuce, creamy mayonnaise, ketchup, crunchy pickles, and sliced white onions on a toasted sesame seed bun.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $6.19</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">6.19</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="6.19">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="8.79">
+                                <img src="https://cdn.sanity.io/images/czqk28jt/prod_bk_us/f574650a6eecf9595cfcd164387cd6bbc54b5040-1333x1333.png?w=1125&q=80&fit=max&auto=format", style="background-color: #502314";
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Texas Double Whopper(1,090 Cal)</h5>
+                                    <p class="card-text"> Two ¼ lb.* flame-grilled beef patties topped with melty American cheese, crispy bacon, juicy tomatoes, crisp lettuce,yellow mustard on a toasted sesame seed bun.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $8.79</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$8.79</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="8.79">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="1.49">
+                                <img src="https://cdn.sanity.io/images/czqk28jt/prod_bk_us/28f37c5a4018fc3c167a119948c36e21d08d6a31-1333x1333.png?w=1125&q=80&fit=max&auto=format", style="background-color: #502314";
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Hamburger (250 cal)</h5>
+                                    <p class="card-text">A flame-grilled beef patty with crunchy pickles, yellow mustard, and ketchup on a toasted sesame seed bun.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $1.49</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$1.49</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="1.49">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="6.90">
+                                <img src="https://cdn.sanity.io/images/czqk28jt/prod_bk_us/d06846598b47ff0ae865299a30b2826993567e9c-1333x1333.png?w=1125&q=80&fit=max&auto=format", style="background-color: #502314";
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Big King (490 cal)</h5>
+                                    <p class="card-text">Two flame-grilled beef patties topped with crisp lettuce, sliced white onion, crunchy pickles, melty American cheese.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $6.90</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$6.90</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="6.90">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;" data-price="6.90">
+                                <img src="https://cdn.sanity.io/images/czqk28jt/prod_bk_us/6319f82fb4fd2964dcfbe1dc286e363bddf9373a-1333x1333.png?w=1125&q=80&fit=max&auto=format", style="background-color: #502314";
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Spicy BK Royal Crispy Chicken (760 cal)</h5>
+                                    <p class="card-text">Crispy white meat breast fillet coated with our triple pepper spicy glaze, topped with savory sauce.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $6.90</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$6.90</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="6.90">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                const cards = document.querySelectorAll('.card');
+        
+                cards.forEach(card => {
+                    const quantityInput = card.querySelector('.sbquantity');
+                    const decreaseButton = card.querySelector('.decreasebtn');
+                    const increaseButton = card.querySelector('.increasebtn');
+                    const totalPriceSpan = card.querySelector('.totalPrice');
+                    const hiddenInput = card.querySelector('.totalPriceInput');
+                    const price = parseFloat(card.getAttribute('data-price'));
+        
+                    function updateTotalPrice() {
+                        const quantity = parseInt(quantityInput.value);
+                        const totalPrice = price * quantity;
+                        totalPriceSpan.textContent = `$${totalPrice.toFixed(2)}`;
+                        hiddenInput.value = totalPrice.toFixed(2);
+                    }
+        
+                    decreaseButton.addEventListener('click', function () {
+                        if (quantityInput.value > 1) {
+                            quantityInput.value = parseInt(quantityInput.value) - 1;
+                            updateTotalPrice();
+                        }
+                    });
+        
+                    increaseButton.addEventListener('click', function () {
+                        quantityInput.value = parseInt(quantityInput.value) + 1;
+                        updateTotalPrice();
+                    });
+        
+                    updateTotalPrice();
+                });
+            </script>   
+        </body>
+
+        </html>
+
+    </section>

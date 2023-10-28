@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") -%>
+
+<section class="sbloginpage">
+    <main class="form-signin w-100 m-auto">
+        <form class="sbform" method="post" action="/bklogin">
+            
+          <img src="images/bk.png" alt="" class="starbucksloginimg">
+          <h1 class="adminh1bk">Admin Login</h1>
+      
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="bkmail">
+            <label for="floatingInput" >Email address</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="bkpass">
+            <label for="floatingPassword" >Password</label>
+          </div>
+          <button class="btn btn-primary w-100 py-2" type="submit" id="signbtnsb">Sign in</button>
+        </form>
+      </main>
+</section>

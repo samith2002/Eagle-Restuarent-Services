@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") -%>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data from MySQL</title>
+</head>
+<body>
+  <h1>Data from MySQL</h1>
+  <ul>
+    <% data.forEach((item) => { %>
+      <li><%= item.id%></li>
+      <li><%= item.name%></li>
+      <li><%= item.dept_name%></li>
+      <li><%= item.salary%></li>
+
+    <% }); %>
+  </ul>
+</body>
+</html>
+

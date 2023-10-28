@@ -1,0 +1,348 @@
+.logo{
+    width: 130px;
+    height: 150px;
+    padding-left: 20px;
+}
+
+
+.navbar-brand{
+    width: 50px;
+    height: 50px;
+}
+
+.lidiv{
+    background-color: black;
+    height: 50px;
+    width: 100%;
+}
+
+#untname{
+    margin-left: 70px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1;
+}
+
+.dsblw{
+    font-size: 27px;
+    margin-bottom: 0;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.dsabv{
+    font-size: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.mainpage{
+    width: 100%;
+    height: 100%;
+
+}
+
+.foodintro{
+    margin-top: 60px;
+    margin-left: 50px;
+    width: 500px;
+    height: 500px;
+}
+
+.foodintroanim{
+    margin-top: 60px;
+    margin-left: 50px;
+    width: 500px;
+    height: 900px;
+}
+
+.starbucks{
+    width: 400px;
+    height: 400px;
+    margin-left: 75px;
+    margin-bottom: 30px;
+}
+.pdpng{
+    width: 500px;
+    height: 400px;
+    margin-left: 50px;
+    margin-bottom: 55px;
+}
+.bk{
+    width: 400px;
+    height: 400px;
+    margin-left: 75px;
+    margin-bottom: 30px;
+}
+
+.sway{
+    width: 400px;
+    height: 400px;
+    margin-left: 75px;
+    margin-bottom: 80px;
+    margin-top: 0;
+}
+
+.cfa{
+    width: 600px;
+    height: 400px;
+    margin-left: 75px;
+    margin-bottom: 30px;
+}
+
+
+#adminlogin{
+    height: 450px;
+}
+
+.starbuckct{
+    color: #00853E;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-left: 100px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 63px;
+    
+}
+
+
+.starbuckct2{
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-left: 100px;
+    font-size: 17px;
+    letter-spacing: 1;
+    
+}
+
+#starbucksbtn{
+    margin-left: 100px;
+    margin-top: 40px;
+    color: white;
+
+}
+
+
+.bkct{
+    color: #CC2131;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-left: 100px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 63px;
+}
+
+.cfct{
+    color: #DE0031;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-left: 100px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 63px;
+}
+
+.kfcct{
+    color: #A3080C;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-left: 100px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 63px;
+}
+
+.mdct{
+    color: #D52B1E;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-left: 100px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 63px;
+}
+
+.pdct{
+    color: #F66E22;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-left: 100px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 63px;
+}
+
+.swct{
+    color: #FFF200;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-left: 100px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 63px;
+}
+
+
+ .sbloginpage{
+    width: 350px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+} 
+
+.sbform{
+    text-align: center;
+    margin-top: 15px;
+
+}
+
+.starbucksloginimg{
+
+    width: 300px;
+    height: 300px;
+    margin-bottom: 10px;
+  }
+  
+#signbtnsb{
+    margin-top: 15px;
+}
+
+.adminh1{
+    color: #00853E;
+    font-size: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.menuh1{
+    color: #00853E;
+    color: black;
+    font-weight: 700;
+    font-family: 'Nunito Sans', sans-serif;
+
+}
+
+.adminh1bk{
+    color: #CC2131;
+    font-size: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.adminkfch1{
+    color: #A3080C;
+    font-size: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.mcdadminh1{
+    color: #D52B1E;
+    font-size: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+
+
+.chickadminh1{
+    color: #DE0031;
+    font-size: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.swayadminh1{
+    color: #005543;
+    font-size: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.starbucksmainimg{
+   margin-top: 25px;
+    width: 300px;
+    height: 300px;
+}
+
+.mainlogo{
+    margin-top: 25px;
+    width: 210px;
+    height: 320px;
+}
+
+.sbmainbody{
+    text-align: center;
+}
+
+.adminnamesb{
+    color: #00853E;
+    font-size: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-top: 20px;
+}
+
+.staffcardpic{
+    width: 200px;
+    height : 200px;
+}
+
+.card{
+    margin: 20px;
+    padding: auto;
+    width: 300px;
+    margin-bottom: 50px;
+    transition: transform 0.5s; 
+}
+.card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 25px #00853E;
+  }
+
+.carddiv{
+    margin: 55px;
+    padding: 120px;
+    width: 1200px;
+    border-radius: 8%;
+    height: auto;
+}
+
+.sbfooter{
+    color: white;
+    margin: 50px;
+    font-size: 20px;
+}
+
+.mainbddiv{
+    padding: 50px;
+}
+
+.decreasebtn{
+    color: white;
+    border-radius: 50%;
+    margin-right: 2px;
+    border: none;
+}
+
+.increasebtn{
+    color: white;
+    margin-left: 2px;
+    border-radius: 50%;
+    border: none;
+}
+
+.hotdrinks{
+
+    padding: 20px;
+    margin: 20px;
+
+}
+
+.paymentdiv{
+
+    width: 500px;
+
+    margin-top: 15px;
+    
+
+}
+
+.paymentcarddiv{
+
+    width: 300px;
+
+    margin: 25px;
+
+    padding: 5px;
+
+
+}

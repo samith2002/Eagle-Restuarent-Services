@@ -1,0 +1,108 @@
+<%- include("partials/header.ejs") -%>
+
+<!-- views/data.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data from MySQL</title>
+</head>
+<body class="sbmainbody">
+  <center>
+    <img src="images/starbucks.png" alt="" class="starbucksmainimg">
+  </center>
+  <h1 class="adminnamesb" style="text-decoration: underline;">Hello <%= adminname %> !</h1>
+
+  <!-- //carousel -->
+  <center>
+ 
+  <div class="carddiv" style="background-color: black;">
+    <div class="row">
+      <div class="card" style="width: 18rem;height: 487px;">
+        <center>
+          <img class="card-img-top" src="images/id.png" alt="Card image cap">
+        </center>
+        <div class="card-body">
+     
+          <h5 class="card-title" style="color: #00853E;  font-family: 'Nunito Sans', sans-serif;font-weight: bold; ">Staff</h5>
+          <p class="card-text" style="font-weight:600;  font-family: 'Nunito Sans', sans-serif;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-body">
+          <a href="/sbstaff">
+            <button type="button" class="btn btn-outline-primary font-weight: bold; ">Manage Staff</button>
+          </a>
+          
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;height: 485px; font-family: 'Nunito Sans', sans-serif;">
+        <center>
+          <img class="card-img-top" src="images/warehouse.png" alt="Card image cap" style="width: 230px; height: auto;">
+        </center>
+        
+        <div class="card-body">
+          <h5 class="card-title" style="color: #00853E;font-weight: bold; ">Stock</h5>
+          <p class="card-text" style="font-weight: 600; " ; >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-primary">Manage Stock</button>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;height:485px; font-family: 'Nunito Sans', sans-serif;">
+        <center>
+          <img class="card-img-top" src="images/revenue.png" alt="Card image cap" style="width: 250px; height: auto;">
+        </center>
+      
+        <div class="card-body">
+          <h5 class="card-title" style="color: #00853E;font-weight: bold; ">Revenue</h5>
+          <p class="card-text" style="font-weight: 600; ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-primary">View Revenue</button>
+        </div>
+      </div>
+      <div class="card " style="width: 18rem;height: 485px; font-family: 'Nunito Sans', sans-serif;">
+        <center>
+          <img class="card-img-top" src="images/menu.png" alt="Card image cap" style="width: 250px; height: auto;">
+        </center>
+
+        <div class="card-body">
+          <h5 class="card-title" style="color: #00853E;font-weight: bold; ">Menu</h5>
+          <p class="card-text" style="font-weight: 600; ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-primary">Manage Menu</button>
+        </div>
+      </div>
+      <div class="card " style="width: 18rem;height: 485px; font-family: 'Nunito Sans', sans-serif;">
+        <img class="card-img-top" src="images/infra.png" alt="Card image cap" style="width: 250px; height: auto;">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #00853E;font-weight: bold; ">Infrastrucutre</h5>
+          <p class="card-text" style="font-weight: 600; ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-primary">Manage Infrastrucutre</button>
+        </div>
+      </div>
+      <div class="card " style="width: 18rem;height: 485px; font-family: 'Nunito Sans', sans-serif;">
+        <center>
+          <img class="card-img-top" src="images/hiring.png" alt="Card image cap" style="width: 250px; height: auto;">
+        </center>
+      
+        <div class="card-body">
+          <h5 class="card-title" style="color: #00853E;font-weight: bold; ">Hire Staff</h5>
+          <p class="card-text" style="font-weight: 600; ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-primary">Hire</button>
+        </div>
+      </div>
+    </div>
+    <footer  class="sbfooter">
+      © 2023 Starbucks Coffee Company.
+    </footer>
+  </div>
+  
+</center>
+
+
+</body>
+</html>

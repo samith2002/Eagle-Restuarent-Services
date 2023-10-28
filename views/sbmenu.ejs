@@ -1,0 +1,451 @@
+<%- include("partials/header"); -%>
+
+    <section class="sbmenu">
+        <center>
+            <img src="images/starbucks.png" alt="" class="starbucksloginimg" style="margin-top: 25px;">
+            <div style="width: 108; margin-top: 5px;">
+                <h1 class="menuh1" style="background-color: #106E33; color: white;">Menu</h1>
+            </div>
+        </center>
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <body>
+            <div class="hotdrinks">
+                <h1 class="menuh1">Oleato™</h1>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/bev/Oleato_GoldenFoam_ColdBrew.jpg?impolicy=1by1_wide_topcrop_630"
+                                    class="card-img-top" alt="..." name="img">
+                                <div class="card-body">
+                                    <h5 class="card-title">Oleato Golden Foam™ Cold Brew (380 Calories)</h5>
+                                    <p class="card-text">Cold foam contrasts with dark, smooth cold brew, yielding an
+                                        inviting aroma with lush Partanna® infused cold foam.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice" name="total">$12.99</span></p>
+
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/bev/Oleato_CaffeLatte.jpg?impolicy=1by1_wide_topcrop_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Oleato™ Caffé Latte with Oatmilk (330 Calories)</h5>
+                                    <p class="card-text">Starbucks Blonde Espresso infused with Partanna® extra virgin
+                                        olive oil, steamed with oatmilk. Velvety smooth. Deliciously lush.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/bev/Oleato_ToffeeNut_ShakenEspresso.jpg?impolicy=1by1_wide_topcrop_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Oleato™ Iced Shaken Espresso with Oatmilk (250calories)</h5>
+                                    <p class="card-text"> Layers of flavor — coffee forward and lightly sweetened with
+                                        notes of toasted nuts</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/bev/SBX20221014_4538_DragonDrink-GoldenColdFoam-onGray_sRGB-1800.jpg?impolicy=1by1_wide_topcrop_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dragon Drink® Starbucks Refreshers®</h5>
+                                    <p class="card-text"> Crafted with sweet mango and dragonfruit flavors and
+                                        hand-shaken with creamy coconutmilk, ice and a scoop of real diced dragonfruit.
+                                    </p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/bev/SBX20211029_7356_IcedMatchaTeaLatte-GoldenFoam-onGray_sRGB-1800.jpg?impolicy=1by1_wide_topcrop_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Iced Matcha Tea Latte with Oleato Golden Foam™(470 Calories)</h5>
+                                    <p class="card-text"> Smooth and creamy matcha sweetened just right, served with milk over ice and topped with lush Partanna®.
+                                    </p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/bev/SBX20221014_4603_ParadiseDrink-GoldenFoam-onGray_sRGB-1800.jpg?impolicy=1by1_wide_topcrop_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Beverage with Oleato Golden Foam™(460 Calories)</h5>
+                                    <p class="card-text"> Tropical flavors of pineapple and passionfruit combine with diced pineapple and creamy coconutmilk to create a delicious island escape.
+                                    </p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Food -->
+            <div class="hotdrinks" style="background-color: #1e3932;width: 100%;">
+                <h1 class="menuh1" style="color: white;">Food</h1>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/food/SBX20220125_ChickenMapleButterSandwich.jpg?impolicy=1by1_medium_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chicken, Maple Butter & Egg Sandwich (450 Calories)</h5>
+                                    <p class="card-text">Breaded white-meat chicken, fluffy eggs and a maple-butter spread on a toasted oat-biscuit roll.</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice" name="total">$12.99</span></p>
+
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/food/SBX20191018_BaconSausageCageFreeEggWrap.jpg?impolicy=1by1_medium_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bacon, Sausage & Egg Wrap (640 Calories)</h5>
+                                    <p class="card-text">Double-smoked bacon, savory pork sausage and cage-free scrambled eggs combined with Cheddar cheese and potatoes</p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/food/SBX20210915_BaconCheddarEggSandwich.jpg?impolicy=1by1_medium_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Double-Smoked Bacon & Egg Sandwich (500 calories)</h5>
+                                    <p class="card-text"> Bacon smoked for six hours over hickory wood chips, stacked with a cage-free fried egg, topped with a melted slice </p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/food/SBX20170117_ReducedFatTurkeyBaconSandwich.jpg?impolicy=1by1_medium_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Turkey Bacon, Cheddar & Egg White Sandwich (230 Calories)</h5>
+                                    <p class="card-text"> Sizzling turkey bacon and cage-free egg whites paired with creamy, melted, reduced-fat.
+                                    </p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/food/SBX20181120_SausageEggCheddarSandwich.jpg?impolicy=1by1_medium_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sausage, Cheddar & Egg Sandwich(480 Calories)</h5>
+                                    <p class="card-text">
+                                        A savory sausage patty, fluffy cage-free eggs and aged Cheddar cheese on a perfectly toasted English muffin..
+                                    </p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://globalassets.starbucks.com/digitalassets/products/food/SBX20181219_SpinachFetaWrap.jpg?impolicy=1by1_medium_630"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Spinach, Feta & Egg White Wrap(290 Calories)</h5>
+                                    <p class="card-text">Cage-free egg whites are combined with spinach, feta cheese and sun-dried tomato cream cheese inside a whole-wheat wrap.
+                                    </p>
+
+                                    <p class="card-text" style="font-weight: 700;">Price: $12.99</p>
+                                    <!-- remember ejs here have to update the value using sql on top -->
+
+                                    <button id="decrease" class="decreasebtn"
+                                        style="background-color:#0B5ED7;">-</button>
+
+                                    <input type="text" class="sbquantity" value="1" min="1" maxlength="4" size="4">
+
+                                    <button id="increase" class="increasebtn"
+                                        style="background-color:#0B5ED7;">+</button>
+
+                                    <p class="card-text" style="font-weight: 700; margin-top: 10px;">Total: <span
+                                            class="totalPrice">$12.99</span></p>
+                                    <form action="/sbmenu" method="post">
+                                        <input type="hidden" class="totalPriceInput" name="totalPrice" value="12.99">
+                                        <button type="submit" class="btn btn-primary">Order Now</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <script>
+                const quantityInputs = document.querySelectorAll('.sbquantity');
+                const decreaseButtons = document.querySelectorAll('.decreasebtn');
+                const increaseButtons = document.querySelectorAll('.increasebtn');
+                const totalPriceSpans = document.querySelectorAll('.totalPrice');
+                const hidden = document.querySelectorAll('.totalPriceInput');
+                
+
+
+                const initialPrice = 12.99;
+
+
+                function updateTotalPrice(index) {
+                    
+                    const quantity = parseInt(quantityInputs[index].value);
+
+                    const totalPrice = initialPrice * quantity;
+
+                    totalPriceSpans[index].textContent = `${totalPrice.toFixed(2)}`;
+
+                    hidden[index].value = totalPrice.toFixed(2);
+                }
+
+
+                for (let i = 0; i < quantityInputs.length; i++) {
+                    decreaseButtons[i].addEventListener('click', function () {
+                        if (quantityInputs[i].value > 1) {
+                            quantityInputs[i].value = parseInt(quantityInputs[i].value) - 1;
+                            updateTotalPrice(i);
+                        }
+                    });
+
+                    increaseButtons[i].addEventListener('click', function () {
+                        quantityInputs[i].value = parseInt(quantityInputs[i].value) + 1;
+                        updateTotalPrice(i);
+                    });
+
+                    updateTotalPrice(i);
+                }
+            </script>   
+        </body>
+
+        </html>
+
+    </section>

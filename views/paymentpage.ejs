@@ -1,0 +1,69 @@
+<%- include("partials/header.ejs") -%>
+
+<body>
+    <center>
+        <div class="paymentdiv">
+
+            <div >
+                <img src="images/visa-mastercard.jpg" alt="" class="paymentcarddiv" style="display: block;" id="visamaster" >
+                <img src="images/mastercard.png" alt="" class="paymentcarddiv" style="display: none;" id="mastercard">
+                <img src="images/visalogo.png" alt="" class="paymentcarddiv" style="display: none;" id="visacard">
+
+            </div>
+            
+           
+            
+            <form action="/paymentsucc" method="post">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label" style="font-weight: 500; font-size: 18px;" >Card Number</label>
+                  <input type="text" class="form-control" id="CardNumber" aria-describedby="emailHelp" placeholder="Ex: 43XXXXXXXXX">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label" style="font-weight: 500; font-size: 18px;">Expiry</label>
+                  <input type="date" class="form-control" id="Expiry" placeholder="MM/YY">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label" style="font-weight: 500; font-size: 18px;">CVV</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="XXX">
+                  </div>
+
+                <button type="submit" class="btn btn-primary">Make Payment</button>
+              </form>
+        </div>
+    </center>
+   
+    
+    <script>
+        const cardNumberInput = document.getElementById('CardNumber');
+        const visaImage = document.getElementById('visacard');
+        const mastercardImage = document.getElementById('mastercard');
+        const both  = document.getElementById("visamaster")
+       
+        cardNumberInput.addEventListener('input', updateCardType);
+
+        function updateCardType() {
+
+            const cardNumber = cardNumberInput.value;
+
+            if (/^4/.test(cardNumber)) {
+                visaImage.style.display = 'block';
+                mastercardImage.style.display = 'none';
+                both.style.display = 'none';
+                // Hide other card type images
+            } else if (/^5/.test(cardNumber)) {
+                mastercardImage.style.display = 'block';
+                visaImage.style.display = 'none';
+                both.style.display = 'none';
+                // Hide other card type images
+            } else {
+                // Hide all card type images if no match
+                visaImage.style.display = 'none';
+                mastercardImage.style.display = 'none';
+                both.style.display = 'block';
+                // Hide other card type images
+            }
+        }
+    </script>
+    
+</body>
+
