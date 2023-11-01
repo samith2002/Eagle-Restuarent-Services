@@ -223,60 +223,11 @@ app.get("/kfcmenu", function(req,res){
 
 //*************************************//
 
-//****************** mcd Server Login Code *******************//
-
-app.get("/mcdlogin", function(req,res){
-
-    res.render("mcdlogin");
-})
-
-app.post("/mcdlogin",function(req,res){
-
-    
-    const firname = req.body.mcdmail;
-
-    const pass = req.body.mcdpass;
-
-    console.log(firname);
-
-    console.log(pass);
-
-
-})
-
-app.get("/mcdmenu", function(req,res){
-
-    res.render('mcdmenu');
-
-})
-
-//*************************************//
+/
 
 
 
 
-//****************** para Server Login Code *******************//
-
-app.get("/paralogin", function(req,res){
-
-    res.render("paralogin");
-})
-
-app.post("/paralogin",function(req,res){
-
-    
-    const firname = req.body.paramail;
-
-    const pass = req.body.parapass;
-
-    console.log(firname);
-
-    console.log(pass);
-
-
-})
-
-//*************************************//
 
 
 //****************** mcd Server Login Code *******************//
@@ -300,26 +251,9 @@ app.post("/chicklogin",function(req,res){
 
 })
 
-//*************************************//
+app.get("/chickmenu", function(req,res){
 
-//****************** subway Server Login Code *******************//
-
-app.get("/swaylogin", function(req,res){
-
-    res.render("swaylogin");
-})
-
-app.post("/swaylogin",function(req,res){
-
-    
-    const firname = req.body.swaymail;
-
-    const pass = req.body.swaypass;
-
-    console.log(firname);
-
-    console.log(pass);
-
+    res.render('chickmenu');
 
 })
 
