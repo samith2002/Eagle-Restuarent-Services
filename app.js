@@ -48,14 +48,50 @@ app.get("/",function(req,res){
   
 })
 
+app.post("/" , function(req,res){
+
+    res.redirect("/");
+})
+
 app.get("/adminhome",function(req,res){
     res.render("adminhome");
   
 })
 
 app.get("/clog",function(req,res){
-    res.render("customerlogin");
+    res.render("customerlogin",{error : false});
   
+})
+
+app.post("/clog", function(req,res){
+
+    var username = req.body.mail;
+
+    var pass = req.body.pass;
+
+    console.log(username);
+
+    console.log(pass);
+
+    const q = "select * from sakila.user where uid = ?  AND pass = ?";
+
+    conn.query(q,[username,pass] ,function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else if(result.length > 0){
+
+            console.log(result);
+          
+            res.render('custhome');
+         
+        }
+        else{
+            res.render('customerlogin',{error : true});
+        }
+
+    })
+
 })
 app.post("/custhome",function(req,res){
     res.render("custhome");

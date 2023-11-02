@@ -2,23 +2,28 @@
 
 <section class="sbloginpage">
     <main class="form-signin w-100 m-auto">
-        <form class="sbform" method="post" action="/custhome">
-            
-          <img src="images/logo.png" alt="" class="mainlogo">
-          <h1 class="adminh1">Customer Login</h1>
-      
-          <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="sbmail">
-            <label for="floatingInput" >Email address</label>
-          </div>
-          <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="sbpass">
-            <label for="floatingPassword" >Password</label>
-          </div>
-          <a href="custhome.ejs">
-            <button class="btn btn-primary w-100 py-2" type="submit" id="signbtnsb">Log in</button>
-          </a>
-          
+        <form class="sbform" method="post" action="/clog">
+            <img src="images/logo.png" alt="" class="mainlogo">
+            <h1 class="adminh1">Customer Login</h1>
+
+            <!-- Display error message here -->
+            <% if (error) { %>
+                <div class="alert alert-danger" role="alert">
+                    Enter Valid Username or Password
+                </div>
+            <% } %>
+
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="mail">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <a href="custhome.ejs">
+                <button class="btn btn-primary w-100 py-2" type="submit" id="signbtnsb">Log in</button>
+            </a>
         </form>
-      </main>
+    </main>
 </section>
