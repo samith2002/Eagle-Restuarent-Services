@@ -59,8 +59,37 @@ app.get("/adminhome",function(req,res){
 })
 
 app.get("/clog",function(req,res){
-    res.render("customerlogin",{error : false});
+    res.render("customerlogin",{error : false, succ : false});
   
+})
+
+//signup
+
+app.get("/signup", function(req,res){
+
+    res.render('signup');
+})
+
+app.post("/signup", function(req,res){
+
+    var name = req.body.supname;
+
+    var mail = req.body.supmail;
+
+    var pass = req.body.suppass;
+
+    const q = "insert into  sakila.user  values(?,?)";
+
+    conn.query(q,[mail,pass] ,function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render('customerlogin',{error : false, succ : true});
+        }
+
+    })
+
 })
 
 app.post("/clog", function(req,res){
@@ -87,7 +116,7 @@ app.post("/clog", function(req,res){
          
         }
         else{
-            res.render('customerlogin',{error : true});
+            res.render('customerlogin',{error : true, succ : false});
         }
 
     })

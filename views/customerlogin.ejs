@@ -13,6 +13,12 @@
                 </div>
             <% } %>
 
+            <% if(succ) { %>
+                <div class="alert alert-success" role="alert">
+                    Successfully SignedUp Login Again !
+                  </div>
+            <% } %>
+
             <div class="form-floating">
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="mail">
                 <label for="floatingInput">Email address</label>
@@ -21,9 +27,13 @@
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
                 <label for="floatingPassword">Password</label>
             </div>
+           
             <a href="custhome.ejs">
                 <button class="btn btn-primary w-100 py-2" type="submit" id="signbtnsb">Log in</button>
             </a>
         </form>
+        <div>
+            <p style="color: black; display: inline-block;">Don't have an account?  <a href="/signup"><p style="color: blue;display:inline-block;margin-left: 2px;"> SignUp </p></a></p>
+        </div>
     </main>
 </section>
