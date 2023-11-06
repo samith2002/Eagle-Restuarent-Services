@@ -1,0 +1,42 @@
+<%- include("partials/header.ejs") -%>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <title>Checkout</title>
+
+  <style>
+    .container {
+      max-width: 600px;
+    }
+    .checkout-heading {
+      background-color: black;
+      color: #fff;
+      padding: 15px;
+    }
+    .item-list {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="checkout-heading text-center">
+      <h1>Checkout</h1>
+    </div>
+    <ul class="list-group item-list">
+      <% data.forEach((item) => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= item.item_name %>
+          <span class="badge badge-primary badge-pill">$<%= item.price %></span>
+        </li>
+      <% }); %>
+    </ul>
+    <div class="text-center">
+      <a href="/custhome" class="btn btn-primary">Back to Menu</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -127,6 +127,12 @@ app.post("/custhome",function(req,res){
   
 })
 
+app.get("/custhome", function(req,res){
+
+    res.render("custhome");
+
+})
+
 
 //****************** Star Bucks Server Login Code *******************//
 
@@ -173,7 +179,11 @@ app.post("/sblogin",function(req,res){
     
 })
 
+//globals
+
 var  totalprice = 0; //global variable
+
+var iname = "";
 
 app.post("/sbmenu", function(req,res){
     
@@ -181,20 +191,47 @@ app.post("/sbmenu", function(req,res){
      totalprice = req.body.totalPrice;
     
 
-    const query = 'INSERT INTO revenue (price) VALUES (?)';
+    var query = 'select item_name from menu where price = "?"';
 
-    conn.query(query,[totalprice] ,function(err,result){
+    
+
+    conn.query(query,[7] ,function(err,result){
 
         if(err){
             console.log(err);
         }
         else{
 
+            var iname = result[0].item_name;
+
+            var q  = 'insert into checkout values("?",?);'
+
+            conn.query(q,[iname,totalprice] , function(req,result){
+
+                if(err){
+                    console.log(err);
+                }
+                else{
+                   const q1 = "select * from checkout";
+
+                   conn.query(q1, function(req,result){
+
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+
+                        res.render('checkout',{data : result});
+                    }
 
 
-           console.log("Order Submitted Successfully!");
+                   })
+                }
+            })
 
-           res.render('paymentpage');
+        
+        
+       
          
         }
        
