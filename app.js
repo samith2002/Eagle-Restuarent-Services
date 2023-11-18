@@ -187,20 +187,33 @@ var iname = "";
 
 app.post("/sbmenu", function(req,res){
     
+    var resid = 101;
 
-     totalprice = req.body.totalPrice;
+    console.log(resid)
+
+    var totalprice = req.body.totalPrice;
+
+    var price = req.body.price;
+
+
+
+    console.log(price);
+
+
     
 
-    var query = 'select item_name from menu where price = "?"';
+    var query = 'select item_name from menu where price = ? and res_id = ?';
 
     
 
-    conn.query(query,[7] ,function(err,result){
+    conn.query(query,[price,resid] ,function(err,result){
 
         if(err){
             console.log(err);
         }
         else{
+            console.log(query);
+            console.log(result);
 
             var iname = result[0].item_name;
 
@@ -236,6 +249,10 @@ app.post("/sbmenu", function(req,res){
         }
        
     })
+})
+
+app.get("/payment", function(req,res){
+    res.render("paymentpage");
 })
 
 app.post("/paymentsucc", function(req,res){
