@@ -26,7 +26,7 @@ const conn = mysql.createConnection(
         host : "localhost",
         user : "root",
         password : "S@m#2002",
-        database : "sakila",
+        database : "eagle",
     }
 )
 
@@ -72,15 +72,48 @@ app.get("/signup", function(req,res){
 
 app.post("/signup", function(req,res){
 
+    const set = new Set();
+
+    const q1 = "select customer_id from eagle.customer";
+
+    conn.query(q1,function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            result.forEach(element => {
+                set.add(element.customer_id);
+            });
+
+            console.log(set);
+        }
+
+    })
+
+
+    const randomDecimal = Math.random();
+
+    let cid;
+
+    do{
+        cid = Math.floor(randomDecimal * 90) + 10;
+    }while(set.has(cid));
+
+    set.add(cid);
+
+
+
     var name = req.body.supname;
 
     var mail = req.body.supmail;
 
     var pass = req.body.suppass;
 
-    const q = "insert into  sakila.user  values(?,?)";
+    var phone = req.body.phn;
 
-    conn.query(q,[mail,pass] ,function(err,result){
+    const q = "insert into  eagle.customer values(?,?,?,?,?)";
+
+    conn.query(q,[cid,name,phone,mail,pass] ,function(err,result){
         if(err){
             console.log(err);
         }
@@ -102,7 +135,7 @@ app.post("/clog", function(req,res){
 
     console.log(pass);
 
-    const q = "select * from sakila.user where uid = ?  AND pass = ?";
+    const q = "select * from eagle.customer where customer_email = ?  AND customer_password = ?";
 
     conn.query(q,[username,pass] ,function(err,result){
         if(err){
@@ -187,11 +220,11 @@ var iname = "";
 
 app.post("/sbmenu", function(req,res){
     
-    var resid = 101;
+    var reid = req.body.resid;
 
-    console.log(resid)
+    console.log(reid)
 
-    var totalprice = req.body.totalPrice;
+    let totalprice = req.body.totalPrice;
 
     var price = req.body.price;
 
@@ -202,24 +235,29 @@ app.post("/sbmenu", function(req,res){
 
     
 
-    var query = 'select item_name from menu where price = ? and res_id = ?';
+    var query = 'select menu_items from eagle.menu where price = ? and restaurant_id = ?';
 
     
 
-    conn.query(query,[price,resid] ,function(err,result){
+    conn.query(query,[price,reid] ,function(err,result){
 
         if(err){
             console.log(err);
         }
         else{
+
             console.log(query);
             console.log(result);
 
-            var iname = result[0].item_name;
+            var iname = result[0].menu_items;
+            console.log(iname); 
+            
+            const randomDecimal = Math.random();
+            const cid = Math.floor(randomDecimal * 90) + 10;
 
-            var q  = 'insert into checkout values("?",?);'
+            var q  = 'insert into checkout values(?,?,?,?);'
 
-            conn.query(q,[iname,totalprice] , function(req,result){
+            conn.query(q,[cid,totalprice,iname,reid] , function(req,result){
 
                 if(err){
                     console.log(err);
@@ -233,7 +271,7 @@ app.post("/sbmenu", function(req,res){
                         console.log(err);
                     }
                     else{
-
+                        console.log(result);
                         res.render('checkout',{data : result});
                     }
 
