@@ -9,9 +9,16 @@
         <dotlottie-player src="https://lottie.host/a32d5105-7210-4261-a437-f913f50ad415/Z8Hgr3GCnX.json" background="transparent" speed="1" style="width: 300px; height: 300px;"  autoplay></dotlottie-player>
 
     </div>
+    <% if (succ) { %>
+    <h1 class="display-4">Order will be delivered Successfully!</h1>
+<% } else { %>
+    <h1 class="display-4">Order Submitted Successfully!</h1>
+    <p class="lead">Order Grand Total: <%= totalprice %></p>
+<% } %>
 
-        <h1 class="display-4">Order Submitted Successfully!</h1>
-        <p class="lead">Order Grand Total : <%= totalprice %></p>
+    
+
+       
         <hr class="my-4">
     </div>
 </center>

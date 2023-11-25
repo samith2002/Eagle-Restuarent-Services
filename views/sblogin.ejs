@@ -7,6 +7,11 @@
             
           <img src="images/starbucks.png" alt="" class="starbucksloginimg">
           <h1 class="adminh1">Admin Login</h1>
+          <% if (error) { %>
+            <div class="alert alert-danger" role="alert">
+                Enter Valid Username or Password
+            </div>
+        <% } %>
       
           <div class="form-floating">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="sbmail">
@@ -16,7 +21,7 @@
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="sbpass">
             <label for="floatingPassword" >Password</label>
           </div>
-          <a href="sbmainpage.ejs">
+          <a>
             <button class="btn btn-primary w-100 py-2" type="submit" id="signbtnsb">Sign in</button>
           </a>
           

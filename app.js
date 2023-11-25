@@ -125,17 +125,24 @@ app.post("/signup", function(req,res){
 
 })
 
+//login globals
+
+let username = "";
+let pass = "";
+let customerid;
+
 app.post("/clog", function(req,res){
 
-    var username = req.body.mail;
+     username = req.body.mail;
 
-    var pass = req.body.pass;
+     pass = req.body.pass;
 
     console.log(username);
 
     console.log(pass);
 
     const q = "select * from eagle.customer where customer_email = ?  AND customer_password = ?";
+    const q1 = "select customer_id from eagle.customer where customer_email = ?  AND customer_password = ?";
 
     conn.query(q,[username,pass] ,function(err,result){
         if(err){
@@ -150,6 +157,17 @@ app.post("/clog", function(req,res){
         }
         else{
             res.render('customerlogin',{error : true, succ : false});
+        }
+
+    })
+
+    conn.query(q1,[username,pass] ,function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            customerid = result[0].customer_id;
+            console.log(customerid);
         }
 
     })
@@ -173,7 +191,7 @@ app.get("/custhome", function(req,res){
 
 app.get("/sblogin", function(req,res){
 
-    res.render("sblogin");
+    res.render("sblogin",{error : false});
 })
 
 app.get("/sbmenu", function (req,res){
@@ -187,23 +205,26 @@ app.get("/sbmenu", function (req,res){
 app.post("/sblogin",function(req,res){
 
     
-    const firname = req.body.sbmail;
+    let firname = req.body.sbmail;
 
-    const pass = req.body.sbpass;
+    let pass = req.body.sbpass;
 
     console.log(firname);
 
     console.log(pass);
 
-    const q = "SELECT * FROM csce5350_fall.instructor WHERE dept_name = 'Finance'";
+    const q = "SELECT admin_email,admin_password FROM eagle.admin WHERE admin_email = ? and admin_password = ?";
 
-    conn.query(q, function(err,result){
+    conn.query(q, [firname,pass],function(err,result){
         if(err){
             console.log(err);
         }
-        else{
-            res.render('sbmainpage', { adminname:firname});
+        else if(result.length > 0){
+           res.render("sbmainpage",{adminname: firname});
          
+        }
+        else{
+            res.render("sblogin", {error : true});
         }
 
     })
@@ -214,9 +235,9 @@ app.post("/sblogin",function(req,res){
 
 //globals
 
-var  totalprice = 0; //global variable
+let  totalprice = 0; //global variable
 
-var iname = "";
+
 
 app.post("/sbmenu", function(req,res){
     
@@ -224,7 +245,7 @@ app.post("/sbmenu", function(req,res){
 
     console.log(reid)
 
-    let totalprice = req.body.totalPrice;
+     totalprice = req.body.totalPrice;
 
     var price = req.body.price;
 
@@ -288,13 +309,94 @@ app.post("/sbmenu", function(req,res){
        
     })
 })
+//delivery
+
+app.get("/delhome", function(req,res){
+
+    res.render("delhome");
+
+})
+
+let itemq;
+
+app.post("/delhome",function(req,res){
+
+    const randomDecimal = Math.random();
+    const randomDecimal1 = Math.random();
+    const randomDecimal2 = Math.random();
+
+    let oid = Math.floor(randomDecimal * 90) + 10;
+
+    let delvid = Math.floor(randomDecimal1*90)+10;
+
+    let bid = Math.floor(randomDecimal2*90)+10;
+
+    var add = req.body.address;
+
+    var phn = req.body.phone;
+    
+
+
+    const  q0 = 'SELECT COUNT(menu_item) AS itemcount FROM eagle.checkout;'
+
+    conn.query(q0, function(err,result){
+
+        if(err){
+            console.log(err);
+        }
+        else{
+           itemq = result[0].itemcount;
+           console.log(itemq);
+        }
+    })
+
+
+
+    var q  = "insert into orders values(?,?,?);";
+
+    var q1 = "insert into delivery values(?,?,?,?)";
+
+    conn.query(q,[oid,customerid,itemq] , function(err,result){
+
+        if(err){
+            console.log(err);
+        }
+        else{
+          console.log("success");
+        }
+    })
+
+    conn.query(q1,[delvid,add,phn,oid] , function(err,result){
+
+        if(err){
+            console.log(err);
+        }
+        else{
+          res.render("paymentpage", {flag:true});
+        }
+    })
+
+
+
+})
+
 
 app.get("/payment", function(req,res){
-    res.render("paymentpage");
+    res.render("paymentpage",{flag:false});
 })
 
 app.post("/paymentsucc", function(req,res){
-    res.render('sbordersucc',{totalprice:totalprice});
+    var bool = req.body.flag;
+
+    console.log(bool);
+    if(bool == 1){
+
+        res.render('sbordersucc',{totalprice:totalprice,succ : false});
+    }
+    else{
+        res.render('sbordersucc',{totalprice:totalprice, succ : true});
+    }
+    
 })
 
 
@@ -314,6 +416,10 @@ app.get("/sbstaff", function(req,res){
         }
 
     })
+})
+
+app.get("/partTimeEmployees", function(req,res){
+    
 })
 
 

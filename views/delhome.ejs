@@ -1,0 +1,55 @@
+<%- include("partials/header"); -%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Details</title>
+   
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .delivery-form {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .btn-submit {
+            background-color: #28a745;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="delivery-form">
+            <h2 class="text-center mb-4">Delivery Details</h2>
+            <form action="/delhome" method="post">
+                <div class="mb-3">
+                    <label for="address" class="form-label">Delivery Address</label>
+                    <input type="text" class="form-control" placeholder="enter address" name="address"> </input>
+                </div>
+                <div class="mb-3">
+                    <label for="phoneNumber" class="form-label" >Phone Number</label>
+                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number" name="phone" required>
+                </div>
+                <button type="submit" class="btn btn-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

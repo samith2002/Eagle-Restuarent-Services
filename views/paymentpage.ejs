@@ -11,7 +11,6 @@
 
             </div>
             
-           
             
             <form action="/paymentsucc" method="post">
                 <div class="mb-3">
@@ -26,7 +25,14 @@
                     <label for="exampleInputPassword1" class="form-label" style="font-weight: 500; font-size: 18px;">CVV</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="XXX">
                   </div>
-
+                  <% if (flag) { %>
+                    <input type="hidden" value="0" name="flag">
+                <% } else { %>
+                    <input type="hidden" value="1" name="flag">
+                <% } %>
+                
+                    
+                    
                 <button type="submit" class="btn btn-primary">Make Payment</button>
               </form>
         </div>
