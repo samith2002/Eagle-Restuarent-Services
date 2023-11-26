@@ -1,0 +1,137 @@
+<%- include("partials/header"); -%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Employee Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div class="container mt-5">
+    <center>
+        <img src="/images/starbucks.png" alt="" class="starbucksmainimg">
+      </center>
+    <h3>Employee Hiring Form</h3>
+
+    <div class="form-group">
+        <label for="employeeType">Select Employee Type:</label>
+        <select class="form-control" id="employeeType" onchange="showFields()">
+            <option value="" selected disabled>Select Employee Type</option>
+            <option value="partTime">Part-Time Employee</option>
+            <option value="permanent">Permanent Employee</option>
+            <option value="chef">Chef</option>
+        </select>
+    </div>
+
+    <div id="partTimeFields" style="display: none;">
+        <h5>Part-Time Employee Fields</h5>
+        
+        <form action="/assign/12" method="post">
+        <div class="form-group" >
+            <label for="field1">Emp id</label>
+            <input type="text" class="form-control" id="field1" name="empid">
+            <label for="field1">Name</label>
+            <input type="text" class="form-control" id="field1" name="name">
+            <label for="field1">Shift</label>
+            <input type="text" class="form-control" id="field1" name="shift">
+            <label for="field1">Phone Number</label>
+            <input type="text" class="form-control" id="field1" name="phonenum">
+            <label for="field1">Mail</label>
+            <input type="text" class="form-control" id="field1" name="mail">
+            <label for="field1">SSN</label>
+            <input type="text" class="form-control" id="field1" name="ssn">
+            <label for="field1">Admin id</label>
+            <input type="text" class="form-control" id="field1" name="adminid">
+
+            <button class="btn btn-primary" style="margin-top: 10px;" href="/assign/12" >Submit</button>
+        </div>
+    </form>
+      
+    </div>
+
+    <div id="permanentFields" style="display: none;">
+        <h5>Permanent Employee Fields</h5>
+        <!-- Permanent Employee Fields Here -->
+        <form action="/assignper/12" method="post">
+        <div class="form-group">
+            <label for="field1">Emp id</label>
+            <input type="text" class="form-control" id="field1" name="empid">
+            <label for="field1">Name</label>
+            <input type="text" class="form-control" id="field1" name="name">
+            <label for="field1">Shift</label>
+            <input type="text" class="form-control" id="field1" name="shift">
+            <label for="field1">Phone Number</label>
+            <input type="text" class="form-control" id="field1" name="phonenum">
+            <label for="field1">Mail</label>
+            <input type="text" class="form-control" id="field1" name="mail">
+            <label for="field1">SSN</label>
+            <input type="text" class="form-control" id="field1" name="ssn">
+            <label for="field1">Admin id</label>
+            <input type="text" class="form-control" id="field1" name="adminid">
+
+            <button class="btn btn-primary" style="margin-top: 10px;" href="/assignper/12" >Submit</button>
+        </div>
+    </form>
+    </div>
+
+    <div id="chefFields" style="display: none;">
+        <h5>Chef Fields</h5>
+        <!-- Chef Fields Here -->
+     <form action="/assignchef/12" method="post">
+        <div class="form-group">
+            <label for="field1">Emp id</label>
+            <input type="text" class="form-control" id="field1" name="empid">
+            <label for="field1">Name</label>
+            <input type="text" class="form-control" id="field1" name="name">
+            <label for="field1">Shift</label>
+            <input type="text" class="form-control" id="field1" name="shift">
+            <label for="field1">Phone Number</label>
+            <input type="text" class="form-control" id="field1" name="phonenum">
+            <label for="field1">Mail</label>
+            <input type="text" class="form-control" id="field1" name="mail">
+            <label for="field1">Admin id</label>
+            <input type="text" class="form-control" id="field1" name="adminid">
+            <button class="btn btn-primary" style="margin-top: 10px;" href="/assignper/12" >Submit</button>
+        </div>
+    </form>
+        
+    </div>
+
+
+    
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function showFields() {
+        var employeeType = document.getElementById('employeeType').value;
+
+       
+        document.getElementById('partTimeFields').style.display = 'none';
+        document.getElementById('permanentFields').style.display = 'none';
+        document.getElementById('chefFields').style.display = 'none';
+
+        
+        if (employeeType === 'partTime') {
+            document.getElementById('partTimeFields').style.display = 'block';
+        } else if (employeeType === 'permanent') {
+            document.getElementById('permanentFields').style.display = 'block';
+        } else if (employeeType === 'chef') {
+            document.getElementById('chefFields').style.display = 'block';
+        }
+    }
+
+  
+</script>
+
+</body>
+
+</html>

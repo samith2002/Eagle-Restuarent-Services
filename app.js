@@ -418,10 +418,318 @@ app.get("/sbstaff", function(req,res){
     })
 })
 
-app.get("/partTimeEmployees", function(req,res){
+app.get("/partTimeEmployees/:resid", function(req,res){
+
+    const { resid } = req.params;
+    console.log(resid);
+    const q = "SELECT * FROM eagle.part_time_emp where admin_id = ?";
+
+    conn.query(q,[resid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("parttime",{title: 'Part-Time Employees', data: result})
+        }
+
+    })
+})
+
+app.get("/hire/:resid", function(req,res){
+
+    const { resid } = req.params;
+    console.log(resid);
+    if(resid === "sb"){
+        res.render("hiresb");
+    }
+})
+
+app.get("/permanentEmployees/:resid", function(req,res){
+
+    const { resid } = req.params;
+    console.log(resid);
+    const q = "SELECT * FROM eagle.permanent_emp where admin_id = ?";
+
+    conn.query(q,[resid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("permemp",{title: 'Permanent Employees', data: result})
+        }
+
+    })
+})
+
+app.get("/chefs/:resid", function(req,res){
+
+    const { resid } = req.params;
+    console.log(resid);
+    const q = "SELECT * FROM eagle.chefs where admin_id = ?";
+
+    conn.query(q,[resid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("chefs",{title: 'Chefs', data: result})
+        }
+
+    })
+
+
+})
+
+app.get("/revenue/:resid", function(req,res){
+
+    const { resid } = req.params;
+    console.log(resid);
+    const q = "SELECT * FROM eagle.revenue where restaurant_id = ?";
+
+    conn.query(q,[resid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("revenue",{title: 'Daily Revenue', data: result})
+        }
+
+    })
     
 })
 
+
+app.get("/menu/:resid", function(req,res){
+
+    const { resid } = req.params;
+    console.log(resid);
+    const q = "SELECT * FROM eagle.menu where restaurant_id = ?";
+
+    conn.query(q,[resid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("menu",{title: 'Menu', data: result})
+        }
+
+    })
+    
+})
+
+app.get("/infra/:resid", function(req,res){
+
+    const { resid } = req.params;
+    console.log(resid);
+    const q = "SELECT * FROM eagle.infrastructure_management where admin_id = ?";
+
+    conn.query(q,[resid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("infra",{title: 'Infrastructure Data', data: result})
+        }
+
+    })
+    
+})
+
+app.get("/stock/:resid", function(req,res){
+
+    const { resid } = req.params;
+    console.log(resid);
+    const q = "SELECT * FROM eagle.stocks where admin_id = ?";
+
+    conn.query(q,[resid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("stock",{title: 'Stock Data', data: result})
+        }
+
+    })
+
+
+})
+
+app.post("/assignstock/:resid", function(req,res){
+
+    const par = req.params.resid;
+
+    const q = "insert into eagle.stocks values(?,?,?,?,?);"
+
+    var emp_id = req.body.empid;
+
+    console.log(par);
+
+    var stockid = req.body.stockid;
+
+    var stockname = req.body.stockname;
+
+    var quant = req.body.stockquant;
+
+    const currentDate = new Date().toISOString().split('T')[0];
+
+    var adminid = req.body.adminid;
+
+   
+
+    conn.query(q,[stockid,stockname,quant,currentDate,adminid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+           res.redirect("/stock/12");
+        }
+
+    })
+
+
+
+})
+
+
+app.post("/assignper/:resid", function(req,res){
+
+    const par = req.params.resid;
+
+    const q = "insert into eagle.permanent_emp values(?,?,?,?,?,?,?);"
+
+    var emp_id = req.body.empid;
+
+    console.log(par);
+
+    var name = req.body.name;
+
+    var shift = req.body.shift;
+
+    var phone = req.body.phonenum;
+
+    var mail = req.body.mail;
+
+    var ssn = req.body.ssn;
+
+    let aid = req.body.adminid;
+
+    conn.query(q,[emp_id,name,shift,phone,mail,ssn,aid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+           res.redirect("/permanentEmployees/12");
+        }
+
+    })
+
+
+
+})
+
+app.post("/assign/:resid", function(req,res){
+
+    const par = req.params.resid;
+
+    const q = "insert into eagle.part_time_emp values(?,?,?,?,?,?,?);"
+
+    var emp_id = req.body.empid;
+
+    
+    var name = req.body.name;
+
+    var shift = req.body.shift;
+
+    var phone = req.body.phonenum;
+
+    var mail = req.body.mail;
+
+    var ssn = req.body.ssn;
+
+    let aid = req.body.adminid;
+
+    conn.query(q,[emp_id,name,shift,phone,mail,ssn,aid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+           res.redirect("/partTimeEmployees/12");
+        }
+
+    })
+
+
+
+})
+
+
+app.post("/assignchef/:resid", function(req,res){
+
+    const par = req.params.resid;
+
+    const q = "insert into eagle.chefs values(?,?,?,?,?,?);"
+
+    var emp_id = req.body.empid;
+
+    console.log(par);
+
+    var name = req.body.name;
+
+    var shift = req.body.shift;
+
+    var phone = req.body.phonenum;
+
+    var mail = req.body.mail;
+
+    let aid = req.body.adminid;
+
+    conn.query(q,[emp_id,name,phone,shift,mail,aid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+           res.redirect("/chefs/12");
+        }
+
+    })
+
+
+
+})
+
+app.post("/fire/:resid", function(req,res){
+
+    const par = req.params.resid;
+
+    const q = "delete * from eagle.chefs values(?,?,?,?,?,?);"
+
+    var emp_id = req.body.empid;
+
+    console.log(par);
+
+    var name = req.body.name;
+
+    var shift = req.body.shift;
+
+    var phone = req.body.phonenum;
+
+    var mail = req.body.mail;
+
+    let aid = req.body.adminid;
+
+    conn.query(q,[emp_id,name,phone,shift,mail,aid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+           res.redirect("/chefs/12");
+        }
+
+    })
+
+
+
+})
 
 
 

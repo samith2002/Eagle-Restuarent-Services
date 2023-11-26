@@ -1,0 +1,101 @@
+<%- include("partials/header"); -%>
+<head></head>
+<body>
+    <center>
+        <img src="/images/starbucks.png" alt="" class="starbucksmainimg">
+      </center>
+<div class="container mt-5" style="margin-top: 20px;">
+    <h3><%= title %></h3>
+    
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Shift</th>
+                <th>Phone Number</th>
+                <th>Mail</th>
+                <th>SSN</th>
+                <th>Admin id</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(employee => { %>
+                <tr>
+                    <td><%= employee.emp_id %></td>
+                    <td><%= employee.emp_name %></td>
+                    <td><%= employee.emp_shift %></td>
+                    <td><%= employee.emp_phone_num %></td>
+                    <td><%= employee.emp_email %></td>
+                    <td><%= employee.emp_ssn %></td>
+                    <td><%= employee.admin_id %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <!-- Assign Button -->
+    <button class="btn btn-primary" onclick="toggleAssignFields()">
+        Assign Shifts +
+    </button>
+
+    <form action="/assign/12" method="post">
+        <div id="assignFields" style="display: none;">
+            <!-- Your 7 input fields go here -->
+            <div class="form-group">
+                <label for="field1">Emp id</label>
+                <input type="text" class="form-control" id="field1" name="empid">
+                <label for="field1">Name</label>
+                <input type="text" class="form-control" id="field1" name="name">
+                <label for="field1">Shift</label>
+                <input type="text" class="form-control" id="field1" name="shift">
+                <label for="field1">Phone Number</label>
+                <input type="text" class="form-control" id="field1" name="phonenum">
+                <label for="field1">Mail</label>
+                <input type="text" class="form-control" id="field1" name="mail">
+                <label for="field1">SSN</label>
+                <input type="text" class="form-control" id="field1" name="ssn">
+                <label for="field1">Admin id</label>
+                <input type="text" class="form-control" id="field1" name="adminid">
+            </div>
+          
+    
+    
+            <button class="btn btn-success" type="submit" style="margin-top: 10px;">Submit</button>
+        </div>
+    
+    </form>
+   
+    <!-- <div style="width: 350;height: 350;">
+        <canvas id="employeeChart" width="400" height="400"></canvas>
+    </div> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dummy data for the pie chart (replace with your actual data)
+        var pieData = {
+            labels: ["Part-Time", "Full-Time", "Chefs"],
+            datasets: [{
+                data: [30, 40, 30], // Replace with actual data percentages
+                backgroundColor: ["#007bff", "#28a745", "#6610f2"],
+            }]
+        };
+
+        var ctx = document.getElementById('employeeChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: pieData,
+        });
+
+        function toggleAssignFields() {
+            var assignFields = document.getElementById('assignFields');
+            assignFields.style.display = assignFields.style.display === 'none' ? 'block' : 'none';
+        }
+
+       
+    </script>
+</div>
+
+</body>
+</html>
