@@ -20,7 +20,7 @@
             <img src="/images/bk.png" alt="Burger King Logo" class="starbucksmainimg">
         <% } %>
       </center>
-    <h3>Employee Hiring Form</h3>
+    <h3>Employee Firing Form</h3>
 
     <div class="form-group">
         <label for="employeeType">Select Employee Type:</label>
@@ -34,22 +34,13 @@
     <% if (resid === '12') { %>
         <div id="partTimeFields" style="display: none;">
             <h5>Part-Time Employee Fields</h5>
-    
             
-            <form action="/assign/12" method="post">
+            <form action="/fire/12/part" method="post">
             <div class="form-group" >
                 <label for="field1">Emp id</label>
                 <input type="text" class="form-control" id="field1" name="empid">
                 <label for="field1">Name</label>
                 <input type="text" class="form-control" id="field1" name="name">
-                <label for="field1">Shift</label>
-                <input type="text" class="form-control" id="field1" name="shift">
-                <label for="field1">Phone Number</label>
-                <input type="text" class="form-control" id="field1" name="phonenum">
-                <label for="field1">Mail</label>
-                <input type="text" class="form-control" id="field1" name="mail">
-                <label for="field1">SSN</label>
-                <input type="text" class="form-control" id="field1" name="ssn">
                 <label for="field1">Admin id</label>
                 <input type="text" class="form-control" id="field1" name="adminid">
     
@@ -61,26 +52,17 @@
     <% } else if (resid === '23') { %>
         <div id="partTimeFields" style="display: none;">
             <h5>Part-Time Employee Fields</h5>
-    
             
-            <form action="/assign/23" method="post">
+            <form action="/fire/23/part" method="post">
             <div class="form-group" >
                 <label for="field1">Emp id</label>
                 <input type="text" class="form-control" id="field1" name="empid">
                 <label for="field1">Name</label>
                 <input type="text" class="form-control" id="field1" name="name">
-                <label for="field1">Shift</label>
-                <input type="text" class="form-control" id="field1" name="shift">
-                <label for="field1">Phone Number</label>
-                <input type="text" class="form-control" id="field1" name="phonenum">
-                <label for="field1">Mail</label>
-                <input type="text" class="form-control" id="field1" name="mail">
-                <label for="field1">SSN</label>
-                <input type="text" class="form-control" id="field1" name="ssn">
                 <label for="field1">Admin id</label>
                 <input type="text" class="form-control" id="field1" name="adminid">
     
-                <button class="btn btn-primary" style="margin-top: 10px;" href="/assign/12" >Submit</button>
+                <button class="btn btn-primary" style="margin-top: 10px;" >Submit</button>
             </div>
         </form>
           
@@ -91,20 +73,12 @@
         <div id="permanentFields" style="display: none;">
             <h5>Permanent Employee Fields</h5>
             <!-- Permanent Employee Fields Here -->
-            <form action="/assignper/12" method="post">
+            <form action="/fire/12/perm" method="post">
             <div class="form-group">
                 <label for="field1">Emp id</label>
                 <input type="text" class="form-control" id="field1" name="empid">
                 <label for="field1">Name</label>
                 <input type="text" class="form-control" id="field1" name="name">
-                <label for="field1">Shift</label>
-                <input type="text" class="form-control" id="field1" name="shift">
-                <label for="field1">Phone Number</label>
-                <input type="text" class="form-control" id="field1" name="phonenum">
-                <label for="field1">Mail</label>
-                <input type="text" class="form-control" id="field1" name="mail">
-                <label for="field1">SSN</label>
-                <input type="text" class="form-control" id="field1" name="ssn">
                 <label for="field1">Admin id</label>
                 <input type="text" class="form-control" id="field1" name="adminid">
     
@@ -112,25 +86,16 @@
             </div>
         </form>
         </div>
-       
     <% } else if (resid === '23') { %>
         <div id="permanentFields" style="display: none;">
             <h5>Permanent Employee Fields</h5>
             <!-- Permanent Employee Fields Here -->
-            <form action="/assignper/23" method="post">
+            <form action="/fire/23/perm" method="post">
             <div class="form-group">
                 <label for="field1">Emp id</label>
                 <input type="text" class="form-control" id="field1" name="empid">
                 <label for="field1">Name</label>
                 <input type="text" class="form-control" id="field1" name="name">
-                <label for="field1">Shift</label>
-                <input type="text" class="form-control" id="field1" name="shift">
-                <label for="field1">Phone Number</label>
-                <input type="text" class="form-control" id="field1" name="phonenum">
-                <label for="field1">Mail</label>
-                <input type="text" class="form-control" id="field1" name="mail">
-                <label for="field1">SSN</label>
-                <input type="text" class="form-control" id="field1" name="ssn">
                 <label for="field1">Admin id</label>
                 <input type="text" class="form-control" id="field1" name="adminid">
     
@@ -139,57 +104,63 @@
         </form>
         </div>
     <% } %>
-   
 
     <% if (resid === '12') { %>
-        <div id="chefFields" style="display: none;">
-            <h5>Chef Fields</h5>
-            <!-- Chef Fields Here -->
-         <form action="/assignchef/12" method="post">
-            <div class="form-group">
-                <label for="field1">Emp id</label>
-                <input type="text" class="form-control" id="field1" name="empid">
-                <label for="field1">Name</label>
-                <input type="text" class="form-control" id="field1" name="name">
-                <label for="field1">Shift</label>
-                <input type="text" class="form-control" id="field1" name="shift">
-                <label for="field1">Phone Number</label>
-                <input type="text" class="form-control" id="field1" name="phonenum">
-                <label for="field1">Mail</label>
-                <input type="text" class="form-control" id="field1" name="mail">
-                <label for="field1">Admin id</label>
-                <input type="text" class="form-control" id="field1" name="adminid">
-                <button class="btn btn-primary" style="margin-top: 10px;" href="/assignper/12" >Submit</button>
-            </div>
-        </form>
-            
+        
+    <div id="chefFields" style="display: none;">
+        <h5>Chef Fields</h5>
+        <!-- Chef Fields Here -->
+     <form action="/fire/12/chef" method="post">
+        <div class="form-group">
+            <label for="field1">Emp id</label>
+            <input type="text" class="form-control" id="field1" name="empid">
+            <label for="field1">Name</label>
+            <input type="text" class="form-control" id="field1" name="name">
+            <label for="field1">Admin id</label>
+            <input type="text" class="form-control" id="field1" name="adminid">
+            <button class="btn btn-primary" style="margin-top: 10px;" href="/assignper/12" >Submit</button>
         </div>
+    </form>
+        
+    </div>
     <% } else if (resid === '23') { %>
-           <div id="chefFields" style="display: none;">
-            <h5>Chef Fields</h5>
-            <!-- Chef Fields Here -->
-         <form action="/assignchef/23" method="post">
-            <div class="form-group">
-                <label for="field1">Emp id</label>
-                <input type="text" class="form-control" id="field1" name="empid">
-                <label for="field1">Name</label>
-                <input type="text" class="form-control" id="field1" name="name">
-                <label for="field1">Shift</label>
-                <input type="text" class="form-control" id="field1" name="shift">
-                <label for="field1">Phone Number</label>
-                <input type="text" class="form-control" id="field1" name="phonenum">
-                <label for="field1">Mail</label>
-                <input type="text" class="form-control" id="field1" name="mail">
-                <label for="field1">Admin id</label>
-                <input type="text" class="form-control" id="field1" name="adminid">
-                <button class="btn btn-primary" style="margin-top: 10px;" href="/assignper/12" >Submit</button>
-            </div>
-        </form>
-            
+        
+    <div id="chefFields" style="display: none;">
+        <h5>Chef Fields</h5>
+        <!-- Chef Fields Here -->
+     <form action="/fire/23/chef" method="post">
+        <div class="form-group">
+            <label for="field1">Emp id</label>
+            <input type="text" class="form-control" id="field1" name="empid">
+            <label for="field1">Name</label>
+            <input type="text" class="form-control" id="field1" name="name">
+            <label for="field1">Admin id</label>
+            <input type="text" class="form-control" id="field1" name="adminid">
+            <button class="btn btn-primary" style="margin-top: 10px;" href="/assignper/12" >Submit</button>
         </div>
+    </form>
+        
+    </div>
     <% } %>
 
+ 
 
+    <div id="chefFields" style="display: none;">
+        <h5>Chef Fields</h5>
+        <!-- Chef Fields Here -->
+     <form action="/fire/12/chef" method="post">
+        <div class="form-group">
+            <label for="field1">Emp id</label>
+            <input type="text" class="form-control" id="field1" name="empid">
+            <label for="field1">Name</label>
+            <input type="text" class="form-control" id="field1" name="name">
+            <label for="field1">Admin id</label>
+            <input type="text" class="form-control" id="field1" name="adminid">
+            <button class="btn btn-primary" style="margin-top: 10px;" href="/assignper/12" >Submit</button>
+        </div>
+    </form>
+        
+    </div>
 
 
     

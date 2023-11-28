@@ -2,7 +2,11 @@
 <head></head>
 <body>
     <center>
-        <img src="/images/starbucks.png" alt="" class="starbucksmainimg">
+        <% if (resid === '12') { %>
+            <img src="/images/starbucks.png" alt="Starbucks Logo" class="starbucksmainimg">
+        <% } else if (resid === '23') { %>
+            <img src="/images/bk.png" alt="Burger King Logo" class="starbucksmainimg">
+        <% } %>
       </center>
 <div class="container mt-5" style="margin-top: 20px;">
     <h3><%= title %></h3>

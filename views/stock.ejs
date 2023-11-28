@@ -2,7 +2,11 @@
 <head></head>
 <body>
     <center>
-        <img src="/images/starbucks.png" alt="" class="starbucksmainimg">
+        <% if (resid === '12') { %>
+            <img src="/images/starbucks.png" alt="Starbucks Logo" class="starbucksmainimg">
+        <% } else if (resid === '23') { %>
+            <img src="/images/bk.png" alt="Burger King Logo" class="starbucksmainimg">
+        <% } %>
       </center>
 <div class="container mt-5" style="margin-top: 20px;">
     <h3><%= title %></h3>
@@ -36,26 +40,55 @@
         Update Stock Data +
     </button>
 
-    <form action="/assignstock/12" method="post">
-        <div id="assignFields" style="display: none;">
-            <!-- Your 7 input fields go here -->
-            <div class="form-group">
-                <label for="field1">Stock id</label>
-                <input type="text" class="form-control" id="field1" name="stockid">
-                <label for="field1">Stock Name</label>
-                <input type="text" class="form-control" id="field1" name="stockname">
-                <label for="field1">Stock Quantity</label>
-                <input type="text" class="form-control" id="field1" name="stockquant">
-                <label for="field1">Admin id</label>
-                <input type="text" class="form-control" id="field1" name="adminid">
+   
+
+    <% if (resid === '12') { %>
+        <form action="/assignstock/12" method="post">
+            <div id="assignFields" style="display: none;">
+                <!-- Your 7 input fields go here -->
+                
+                <div class="form-group">
+                    <label for="field1">Stock id</label>
+                    <input type="text" class="form-control" id="field1" name="stockid">
+                    <label for="field1">Stock Name</label>
+                    <input type="text" class="form-control" id="field1" name="stockname">
+                    <label for="field1">Stock Quantity</label>
+                    <input type="text" class="form-control" id="field1" name="stockquant">
+                    <label for="field1">Admin id</label>
+                    <input type="text" class="form-control" id="field1" name="adminid">
+                </div>
+              
+        
+        
+                <button class="btn btn-success" type="submit" style="margin-top: 10px;">Submit</button>
             </div>
-          
-    
-    
-            <button class="btn btn-success" type="submit" style="margin-top: 10px;">Submit</button>
-        </div>
-    
-    </form>
+        
+        </form>
+    <% } else if (resid === '23') { %>
+        <form action="/assignstock/23" method="post">
+            <div id="assignFields" style="display: none;">
+                <!-- Your 7 input fields go here -->
+                
+                <div class="form-group">
+                    <label for="field1">Stock id</label>
+                    <input type="text" class="form-control" id="field1" name="stockid">
+                    <label for="field1">Stock Name</label>
+                    <input type="text" class="form-control" id="field1" name="stockname">
+                    <label for="field1">Stock Quantity</label>
+                    <input type="text" class="form-control" id="field1" name="stockquant">
+                    <label for="field1">Admin id</label>
+                    <input type="text" class="form-control" id="field1" name="adminid">
+                </div>
+              
+        
+        
+                <button class="btn btn-success" type="submit" style="margin-top: 10px;">Submit</button>
+            </div>
+        
+        </form>
+    <% } %>
+
+
    
     <!-- <div style="width: 350;height: 350;">
         <canvas id="employeeChart" width="400" height="400"></canvas>

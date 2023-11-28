@@ -92,6 +92,7 @@ app.post("/signup", function(req,res){
 
 
     const randomDecimal = Math.random();
+   
 
     let cid;
 
@@ -198,7 +199,41 @@ app.get("/sbmenu", function (req,res){
     res.render("sbmenu");
 })
 
+app.get("/bklogin", function(req,res){
 
+    res.render("bklogin",{error : false});
+})
+
+app.post("/bklogin",function(req,res){
+
+    
+    let firname = req.body.sbmail;
+
+    let pass = req.body.sbpass;
+
+    console.log(firname);
+
+    console.log(pass);
+
+    const q = "SELECT admin_email,admin_password FROM eagle.admin WHERE admin_email = ? and admin_password = ?";
+
+    conn.query(q, [firname,pass],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else if(result.length > 0){
+           res.render("bkmainpage",{adminname: firname});
+         
+        }
+        else{
+            res.render("bklogin", {error : true});
+        }
+
+    })
+    
+
+
+})
 
 // star bucks post req
 
@@ -238,10 +273,11 @@ app.post("/sblogin",function(req,res){
 let  totalprice = 0; //global variable
 
 
+let reid = 0;
 
 app.post("/sbmenu", function(req,res){
     
-    var reid = req.body.resid;
+     reid = req.body.resid;
 
     console.log(reid)
 
@@ -380,9 +416,41 @@ app.post("/delhome",function(req,res){
 
 })
 
-
+let revenue = 0;
 app.get("/payment", function(req,res){
+    
+    const q = "SELECT SUM(prices) FROM eagle.checkout;"
+
+    conn.query(q,function(err,result){
+
+        if(err){
+            console.log(err);
+        }
+        else{
+            revenue =  result[0]['SUM(prices)'];
+            const randomDecimal = Math.random();
+            const rid = Math.floor(randomDecimal * 90) + 10;
+
+            const currentDate = new Date().toISOString().split('T')[0];
+
+
+            const q = "insert into revenue values(?,?,?,?);"
+
+            conn.query(q,[rid,currentDate,revenue,reid] , function(err,result){
+
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    console.log("Revenue Updated from checkout!");
+                }
+            })
+        }
+    })
+
+
     res.render("paymentpage",{flag:false});
+    
 })
 
 app.post("/paymentsucc", function(req,res){
@@ -391,11 +459,23 @@ app.post("/paymentsucc", function(req,res){
     console.log(bool);
     if(bool == 1){
 
-        res.render('sbordersucc',{totalprice:totalprice,succ : false});
+        res.render('sbordersucc',{revenue:revenue,succ : false});
     }
     else{
-        res.render('sbordersucc',{totalprice:totalprice, succ : true});
+        res.render('sbordersucc',{revenue:revenue, succ : true});
     }
+
+    const q = "delete from eagle.checkout;"
+
+    conn.query(q,function(err,result){
+
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log("checkout cleared !");
+        }
+    })
     
 })
 
@@ -404,19 +484,13 @@ app.post("/paymentsucc", function(req,res){
 
 app.get("/sbstaff", function(req,res){
 
-    const q = "SELECT * FROM csce5350_fall.instructor";
-
-    conn.query(q, function(err,result){
-        if(err){
-            console.log(err);
-        }
-        else{
-            res.render('sbstaff', { data:result});
-         
-        }
-
-    })
+  res.render("sbstaff");
 })
+
+app.get("/bkstaff", function(req,res){
+
+    res.render("bkstaff");
+  })
 
 app.get("/partTimeEmployees/:resid", function(req,res){
 
@@ -429,7 +503,7 @@ app.get("/partTimeEmployees/:resid", function(req,res){
             console.log(err);
         }
         else{
-            res.render("parttime",{title: 'Part-Time Employees', data: result})
+            res.render("parttime",{title: 'Part-Time Employees', data: result,resid})
         }
 
     })
@@ -439,8 +513,11 @@ app.get("/hire/:resid", function(req,res){
 
     const { resid } = req.params;
     console.log(resid);
-    if(resid === "sb"){
-        res.render("hiresb");
+    if(resid === "12"){
+        res.render("hiresb",{resid:resid});
+    }
+    if(resid === "23"){
+        res.render("hiresb",{resid:resid});
     }
 })
 
@@ -455,7 +532,7 @@ app.get("/permanentEmployees/:resid", function(req,res){
             console.log(err);
         }
         else{
-            res.render("permemp",{title: 'Permanent Employees', data: result})
+            res.render("permemp",{title: 'Permanent Employees', data: result,resid})
         }
 
     })
@@ -472,7 +549,7 @@ app.get("/chefs/:resid", function(req,res){
             console.log(err);
         }
         else{
-            res.render("chefs",{title: 'Chefs', data: result})
+            res.render("chefs",{title: 'Chefs', data: result,resid})
         }
 
     })
@@ -491,7 +568,7 @@ app.get("/revenue/:resid", function(req,res){
             console.log(err);
         }
         else{
-            res.render("revenue",{title: 'Daily Revenue', data: result})
+            res.render("revenue",{title: 'Daily Revenue', data: result,resid});
         }
 
     })
@@ -510,7 +587,7 @@ app.get("/menu/:resid", function(req,res){
             console.log(err);
         }
         else{
-            res.render("menu",{title: 'Menu', data: result})
+            res.render("menu",{title: 'Menu', data: result,resid})
         }
 
     })
@@ -528,7 +605,7 @@ app.get("/infra/:resid", function(req,res){
             console.log(err);
         }
         else{
-            res.render("infra",{title: 'Infrastructure Data', data: result})
+            res.render("infra",{title: 'Infrastructure Data', data: result,resid})
         }
 
     })
@@ -546,7 +623,7 @@ app.get("/stock/:resid", function(req,res){
             console.log(err);
         }
         else{
-            res.render("stock",{title: 'Stock Data', data: result})
+            res.render("stock",{title: 'Stock Data', data: result,resid})
         }
 
     })
@@ -581,7 +658,13 @@ app.post("/assignstock/:resid", function(req,res){
             console.log(err);
         }
         else{
-           res.redirect("/stock/12");
+            if(par === "12"){
+                res.redirect("/stock/12");
+
+            }
+            else if(par === "23"){
+                res.redirect("/stock/23");
+            }
         }
 
     })
@@ -618,7 +701,13 @@ app.post("/assignper/:resid", function(req,res){
             console.log(err);
         }
         else{
-           res.redirect("/permanentEmployees/12");
+            if(par === "12"){
+                res.redirect("/permanentEmployees/12");
+            }
+            else if(par === "23"){
+                res.redirect("/permanentEmployees/23");
+            }
+           
         }
 
     })
@@ -630,6 +719,8 @@ app.post("/assignper/:resid", function(req,res){
 app.post("/assign/:resid", function(req,res){
 
     const par = req.params.resid;
+
+    console.log(par);
 
     const q = "insert into eagle.part_time_emp values(?,?,?,?,?,?,?);"
 
@@ -653,7 +744,13 @@ app.post("/assign/:resid", function(req,res){
             console.log(err);
         }
         else{
-           res.redirect("/partTimeEmployees/12");
+            if(par === "12"){
+                res.redirect("/partTimeEmployees/12");
+            }
+            else if(par === "23"){
+                res.redirect("/partTimeEmployees/23");
+            }
+          
         }
 
     })
@@ -688,7 +785,13 @@ app.post("/assignchef/:resid", function(req,res){
             console.log(err);
         }
         else{
-           res.redirect("/chefs/12");
+            if(par === "12"){
+                res.redirect("/chefs/12");
+            }
+            else if(par === "23"){
+                res.redirect("/chefs/23");
+            }
+          
         }
 
     })
@@ -697,37 +800,92 @@ app.post("/assignchef/:resid", function(req,res){
 
 })
 
-app.post("/fire/:resid", function(req,res){
+app.get("/fire/:resid", function(req,res){
+    const result = req.params.resid;
 
-    const par = req.params.resid;
+    if(result === "12"){
+        res.render("firesb",{resid:result});
+    }
+    else if(result === "23"){
+        res.render("firesb",{resid:result});
+    }
+})
 
-    const q = "delete * from eagle.chefs values(?,?,?,?,?,?);"
+app.post("/fire/:resid/:type", function(req,res){
 
-    var emp_id = req.body.empid;
+    const resid = req.params.resid;
 
-    console.log(par);
+    const type = req.params.type;
 
-    var name = req.body.name;
+    const empid = req.body.empid;
 
-    var shift = req.body.shift;
+    const name = req.body.name;
 
-    var phone = req.body.phonenum;
+    const adminid = req.body.adminid;
 
-    var mail = req.body.mail;
+    console.log(resid + " " + type);
 
-    let aid = req.body.adminid;
+    if(type === "chef"){
+         const q = "delete  from eagle.chefs where admin_id = ? and chef_id = ? ;"
 
-    conn.query(q,[emp_id,name,phone,shift,mail,aid],function(err,result){
-        if(err){
-            console.log(err);
-        }
-        else{
-           res.redirect("/chefs/12");
-        }
+         conn.query(q,[adminid,empid],function(err,result){
+            if(err){
+                console.log(err);
+            }
+            else{
+                if(resid === "12"){
+                    res.redirect("/chefs/12");
+                }
+                else{
+                    res.redirect("/chefs/23");
+                }
+               
+            }
+    
+        })  
+    }
+    else if(type === "part"){
 
-    })
+        const q = "delete  from eagle.part_time_emp where admin_id = ? and emp_id = ? ;"
 
+        conn.query(q,[adminid,empid],function(err,result){
+           if(err){
+               console.log(err);
+           }
+           else{
 
+              if(resid === "12"){
+                res.redirect("/partTimeEmployees/12");
+            }
+            else{
+                res.redirect("/partTimeEmployees/23");
+            }
+           }
+   
+       })  
+
+    }
+    else{
+        const q = "delete  from eagle.permanent_emp where admin_id = ? and Pemp_id = ? ;"
+
+        conn.query(q,[adminid,empid],function(err,result){
+           if(err){
+               console.log(err);
+           }
+           else{
+
+              if(resid === "12"){
+                res.redirect("/permanentEmployees/12");
+            }
+            else{
+                res.redirect("/permanentEmployees/23");
+            }
+
+              
+           }
+   
+       })  
+    }
 
 })
 
@@ -738,24 +896,7 @@ app.post("/fire/:resid", function(req,res){
 
 //****************** Burger King Server Login Code *******************//
 
-app.get("/bklogin", function(req,res){
 
-    res.render("bklogin");
-})
-
-app.post("/bklogin",function(req,res){
-
-    
-    const firname = req.body.bkmail;
-
-    const pass = req.body.bkpass;
-
-    console.log(firname);
-
-    console.log(pass);
-
-
-})
 
 app.get("/bkmenu", function(req,res){
 
@@ -803,30 +944,6 @@ app.get("/kfcmenu", function(req,res){
 
 //****************** mcd Server Login Code *******************//
 
-app.get("/chicklogin", function(req,res){
-
-    res.render("chicklogin");
-})
-
-app.post("/chicklogin",function(req,res){
-
-    
-    const firname = req.body.chickmail;
-
-    const pass = req.body.chickpass;
-
-    console.log(firname);
-
-    console.log(pass);
-
-
-})
-
-app.get("/chickmenu", function(req,res){
-
-    res.render('chickmenu');
-
-})
 
 //*************************************//
 
@@ -837,20 +954,6 @@ app.get("/chickmenu", function(req,res){
 
 
 
-
-
-app.post("/",function(req,res){
-
-    
-    const firname = req.body.fname;
-
-    const check = "SELECT * FROM sakila.actor where first_name = ?; "
-
-    const check_c = mysql.format(check,[firname]);
-
-    
-
-})
 
 app.listen(3000, function(){
     console.log("Server Connected");
