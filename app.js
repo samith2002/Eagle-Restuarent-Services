@@ -5,6 +5,7 @@ const express = require('express');
 const mysql = require('mysql');
 
 
+
 // ejs
 
 const ejs = require("ejs"); 
@@ -289,12 +290,7 @@ app.post("/sbmenu", function(req,res){
 
     console.log(price);
 
-
-    
-
     var query = 'select menu_items from eagle.menu where price = ? and restaurant_id = ?';
-
-    
 
     conn.query(query,[price,reid] ,function(err,result){
 
@@ -336,10 +332,6 @@ app.post("/sbmenu", function(req,res){
                    })
                 }
             })
-
-        
-        
-       
          
         }
        
