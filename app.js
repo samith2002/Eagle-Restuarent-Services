@@ -670,25 +670,19 @@ app.post("/assignper/:resid", function(req,res){
 
     const par = req.params.resid;
 
-    const q = "insert into eagle.permanent_emp values(?,?,?,?,?,?,?);"
+    const q = "update eagle.permanent_emp set Pemp_shift = ?  where Pemp_id = ?"
 
     var emp_id = req.body.empid;
 
     console.log(par);
 
-    var name = req.body.name;
 
     var shift = req.body.shift;
 
-    var phone = req.body.phonenum;
-
-    var mail = req.body.mail;
-
-    var ssn = req.body.ssn;
 
     let aid = req.body.adminid;
 
-    conn.query(q,[emp_id,name,shift,phone,mail,ssn,aid],function(err,result){
+    conn.query(q,[shift,emp_id],function(err,result){
         if(err){
             console.log(err);
         }
@@ -709,6 +703,49 @@ app.post("/assignper/:resid", function(req,res){
 })
 
 app.post("/assign/:resid", function(req,res){
+
+    const par = req.params.resid;
+
+    console.log(par);
+
+    const q = "update eagle.part_time_emp set emp_shift = ? where emp_id = ?;"
+
+    var emp_id = req.body.empid;
+
+    
+    var name = req.body.name;
+
+    var shift = req.body.shift;
+
+    var phone = req.body.phonenum;
+
+    var mail = req.body.mail;
+
+    var ssn = req.body.ssn;
+
+    let aid = req.body.adminid;
+
+    conn.query(q,[shift,emp_id],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(par === "12"){
+                res.redirect("/partTimeEmployees/12");
+            }
+            else if(par === "23"){
+                res.redirect("/partTimeEmployees/23");
+            }
+          
+        }
+
+    })
+
+
+
+})
+//hiring
+app.post("/hire/:resid", function(req,res){
 
     const par = req.params.resid;
 
@@ -750,9 +787,7 @@ app.post("/assign/:resid", function(req,res){
 
 
 })
-
-
-app.post("/assignchef/:resid", function(req,res){
+app.post("/hirechef/:resid", function(req,res){
 
     const par = req.params.resid;
 
@@ -773,6 +808,87 @@ app.post("/assignchef/:resid", function(req,res){
     let aid = req.body.adminid;
 
     conn.query(q,[emp_id,name,phone,shift,mail,aid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(par === "12"){
+                res.redirect("/chefs/12");
+            }
+            else if(par === "23"){
+                res.redirect("/chefs/23");
+            }
+          
+        }
+
+    })
+
+
+
+})
+
+app.post("/hireper/:resid", function(req,res){
+
+    const par = req.params.resid;
+
+    const q = "insert into eagle.permanent_emp values(?,?,?,?,?,?,?);"
+
+    var emp_id = req.body.empid;
+
+    console.log(par);
+
+    var name = req.body.name;
+
+    var shift = req.body.shift;
+
+    var phone = req.body.phonenum;
+
+    var mail = req.body.mail;
+
+    var ssn = req.body.ssn;
+
+    let aid = req.body.adminid;
+
+    conn.query(q,[emp_id,name,shift,phone,mail,ssn,aid],function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(par === "12"){
+                res.redirect("/permanentEmployees/12");
+            }
+            else if(par === "23"){
+                res.redirect("/permanentEmployees/23");
+            }
+           
+        }
+
+    })
+
+
+
+})
+
+
+
+
+app.post("/assignchef/:resid", function(req,res){
+
+    const par = req.params.resid;
+
+    const q = "update eagle.chefs set chef_work_shift = ?  where chef_id = ?"
+
+    var emp_id = req.body.empid;
+
+    console.log(par);
+
+    
+
+    var shift = req.body.shift;
+
+    let aid = req.body.adminid;
+
+    conn.query(q,[shift,emp_id],function(err,result){
         if(err){
             console.log(err);
         }
